@@ -8,3 +8,10 @@ Szeretnem kifejezetten ha tudnek:
 - legyen egy faj listam
 - egyenkent lassam allat milyen fajba tartozik
 - es lassam melyik tarolo egysegben vannak
+
+
+## _**1. Főoldal**_
+**1. agilis felhasználói történet:**
+
+
+**Elfogadási kritérium:**  
