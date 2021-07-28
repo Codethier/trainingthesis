@@ -10,15 +10,13 @@ const BreedSchema = new mongoose.Schema({
   breed: String,
   quantity: Number,
   price: Number,
-  description: String,
-  imageUrl: String
+  description: String
 })
 const ItemsSchema = new mongoose.Schema({
   itemName: String,
   amount: Number,
   price: Number,
-  description: String,
-  imageUrl: String
+  description: String
 })
 
 const ShopSchema = new mongoose.Schema({

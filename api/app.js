@@ -7,16 +7,17 @@ const fs = require('fs/promises')
 const mongoose = require("mongoose")
 const schema = require('./schemas')
 const config = require('../CONFIG.json')
+const breed = require('./controllers/breed/breed.router')
 
-let express = require('express')
+let express = require('express');
 let app = express()
 
 app.use(bodyParser.json())
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/breed', breed.router);
 
 (async () => {
-  await mongoose.connect(config.db_url, {useNewUrlParser: true, useUnifiedTopology: true})
+  await mongoose.connect(config.db_url.toString(), {useNewUrlParser: true, useUnifiedTopology: true})
 })().catch(e => console.log(e))
 
 app.get('/person/:id/vaccinated', (req, res, next) => {
@@ -68,6 +69,7 @@ app.delete('/person/:vaccine', async (req, res) => {
   await fs.writeFile('./MOCK_DATA.json', JSON.stringify(db))
   res.json(db)
 })
+
 
 app.use((err, req, res, next) => {
   if (!err.statusCode) {
