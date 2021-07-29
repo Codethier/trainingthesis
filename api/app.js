@@ -1,7 +1,6 @@
 const createError = require('http-errors')
 const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
-const swaggerDocument = YAML.load('./docs/openapi.yaml')
 const bodyParser = require('body-parser')
 const fs = require('fs/promises')
 const mongoose = require("mongoose")
@@ -11,13 +10,13 @@ const breed = require('./controllers/breed/breed.router')
 
 let express = require('express');
 let app = express()
-
+// const swaggerDocument = YAML.load('./docs/openapi.yaml')
 app.use(bodyParser.json())
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+// app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use('/breed', breed.router);
 
 (async () => {
-  await mongoose.connect(config.db_url.toString(), {useNewUrlParser: true, useUnifiedTopology: true})
+  await mongoose.connect(config.db_url.toString()+config.db_name.toString(), {useNewUrlParser: true, useUnifiedTopology: true})
 })().catch(e => console.log(e))
 
 app.get('/person/:id/vaccinated', (req, res, next) => {

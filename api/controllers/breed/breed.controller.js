@@ -7,7 +7,7 @@ async function create(req, res, next) {
     price,
     description
   } = req.body
-  await breedService.create({breed,quantity,price,description})
+  res.json(await breedService.create({breed,quantity,price,description}))
 }
 module.exports = {
   create: create

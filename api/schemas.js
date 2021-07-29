@@ -4,7 +4,8 @@ const idValidator = require('mongoose-id-validator');
 const UserSchema = new mongoose.Schema({
   name: String,
   password: String,
-  role: String
+  role: String,
+  email: String
 })
 const BreedSchema = new mongoose.Schema({
   breed: String,
