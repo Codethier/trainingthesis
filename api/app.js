@@ -2,17 +2,25 @@ const createError = require('http-errors')
 const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
 const bodyParser = require('body-parser')
-const fs = require('fs/promises')
+const fs = require('fs')
 const mongoose = require("mongoose")
 const schema = require('./schemas')
 const config = require('../CONFIG.json')
 const breed = require('./controllers/breed/breed.router')
-
 let express = require('express');
 let app = express()
-// const swaggerDocument = YAML.load('./docs/openapi.yaml')
+
+//handle test path
+let swaggerDocument
+if (fs.existsSync('./api')){
+  swaggerDocument = YAML.load('./api/docs/openapi.yaml')
+}
+else {
+  swaggerDocument = YAML.load('./docs/openapi.yaml')
+}
+
 app.use(bodyParser.json())
-// app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use('/breed', breed.router);
 
 (async () => {
