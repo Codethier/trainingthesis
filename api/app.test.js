@@ -1,10 +1,10 @@
 const request = require('supertest')
-const breedService = require('./controllers/breed/breed.service')
+const breedService = require('./routers/breed/breed.service')
 const app = require('./app')
 const mongoose = require("mongoose");
 const config = require("../CONFIG.json");
 jest.setTimeout(3000)
-jest.mock('./controllers/breed/breed.service')
+jest.mock('./routers/breed/breed.service')
 describe('integration tests', () => {
   beforeEach(() => {
     (async () => {

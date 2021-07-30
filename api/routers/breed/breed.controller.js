@@ -17,7 +17,8 @@ async function findOne(req, res, next) {
 }
 
 async function findAll(req, res, next) {
-  res.json(await breedService.findAll())
+  let q = await breedService.findAll()
+  res.json(q)
 }
 
 async function deleteById(req, res, next) {

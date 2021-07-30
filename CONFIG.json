@@ -1,5 +1,6 @@
 {
   "db_url": "mongodb://localhost/",
   "db_name": "db",
-  "port": 8080
+  "port": 8080,
+  "secret": "notsosecuresecret-dancIng_HotDogz"
 }

@@ -6,27 +6,59 @@ const fs = require('fs')
 const mongoose = require("mongoose")
 const schema = require('./schemas')
 const config = require('../CONFIG.json')
-const breed = require('./controllers/breed/breed.router')
+const breed = require('./routers/breed/breed.router')
+const user = require('./routers/user/user.router')
+const jwt = require('jsonwebtoken')
 let express = require('express');
+const schemas = require("./schemas");
 let app = express()
-
 //handle test path
 let swaggerDocument
-if (fs.existsSync('./api')){
+if (fs.existsSync('./api')) {
   swaggerDocument = YAML.load('./api/docs/openapi.yaml')
-}
-else {
+} else {
   swaggerDocument = YAML.load('./docs/openapi.yaml')
 }
 
 app.use(bodyParser.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-app.use('/breed', breed.router);
+app.use('/user', user.router)
 
-(async () => {
-  await mongoose.connect(config.db_url.toString()+config.db_name.toString(), {useNewUrlParser: true, useUnifiedTopology: true})
-})().catch(e => console.log(e))
+async function checkToken(req, res) {
+  const header = req.headers.authorization
 
+  if (header) {
+    const token = header.split(' ')[1]
+    jwt.verify(token, config.secret, (err, data) => {
+      if (err) {
+        return next(new createError(403, 'Unauthorized'), {expose: false})
+      }
+      req.user = data.id
+    })
+  } else {
+    res.sendStatus(401)
+  }
+}
+
+async function checkAdmin(req, res, next) {
+  await checkToken(req, res)
+  let q = await schemas.UserSchema.findById(req.user).exec()
+  let role = q.role
+  if (role === "admin") {
+    next()
+  } else {
+    return next(new createError(403, 'Unauthorized'), {expose: false})
+  }
+}
+
+// non admin routes
+
+app.get('/', (req, res, next) => {
+  res.json('index')
+})
+app.use(checkAdmin)
+//admin routes
+app.use('/breed', breed.router)
 app.get('/person/:id/vaccinated', (req, res, next) => {
   let id = db.findIndex(i => {
     return i.id === parseInt(req.params.id)
@@ -77,7 +109,6 @@ app.delete('/person/:vaccine', async (req, res) => {
   res.json(db)
 })
 
-
 app.use((err, req, res, next) => {
   if (!err.statusCode) {
     return next()
@@ -86,7 +117,7 @@ app.use((err, req, res, next) => {
   res.json(err.message)
 })
 app.use((req, res) => {
-  res.status(500)
+  res.status(444)
   res.end()
 })
 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const idValidator = require('mongoose-id-validator');
 
 const UserSchema = new mongoose.Schema({
-  name: String,
+  user: String,
   password: String,
   role: String,
   email: String
@@ -45,7 +45,7 @@ const OrderSchema = new mongoose.Schema({
 
 OrderSchema.plugin(idValidator)
 module.exports = {
-  VaccineSchema: mongoose.model('User', UserSchema),
+  UserSchema: mongoose.model('User', UserSchema),
   BreedSchema: mongoose.model('Breed', BreedSchema),
   ItemsSchema: mongoose.model('Item', ItemsSchema),
   ShopSchema: mongoose.model('Shop', ShopSchema),
