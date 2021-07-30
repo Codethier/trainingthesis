@@ -4,7 +4,7 @@ module.exports = {
   create: async (data) => {
     const breed = new schemas.BreedSchema(data)
     await breed.save()
-    return data
+    return breed
   },
   findOne: async (q) => {
     return await schemas.BreedSchema.findById(q).exec()

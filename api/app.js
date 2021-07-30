@@ -63,57 +63,9 @@ app.use(checkAdmin)
 //admin routes
 app.use('/shop', shop.router)
 app.use('/order', order.router)
-app.use('/item',item.router)
+app.use('/item', item.router)
 app.use('/breed', breed.router)
-app.get('/person/:id/vaccinated', (req, res, next) => {
-  let id = db.findIndex(i => {
-    return i.id === parseInt(req.params.id)
-  })
-  if (id === -1) {
-    return next(new createError(404, 'no such id'), {expose: false})
-  }
-  res.send(true)
-})
-app.post('/person', async (req, res) => {
-  let person = req.body
-  let Person = schema.PersonSchema({
-    first_name: person.first_name,
-    last_name: person.last_name,
-    count: person.count,
-    vaccine: person.vaccine
-  })
-  await Person.save()
-  res.send(person)
-})
-app.post('/vaccine', async (req, res) => {
-  let vaccine = req.body
-  let Vaccine = schema.VaccineSchema({
-    name: vaccine.vaccine,
-    efficiency: vaccine.efficiency
-  })
-  await Vaccine.save().catch(e => console.log(e))
-  res.send(vaccine)
-})
-app.put('/person/:id/:vaccine', async (req, res) => {
-  let id = db.findIndex(i => {
-    return i.id === parseInt(req.params.id)
-  })
-  db[id].vaccine = req.params.vaccine
-  await fs.writeFile('./MOCK_DATA.json', JSON.stringify(db))
-  res.json(db[id])
-})
-app.delete('/person/:vaccine', async (req, res) => {
-  let swap = req.params.vaccine
-  for (let i = 0; i < db.length; i++) {
-    console.log(db[i].id)
-    if (db[i].vaccine === swap) {
-      db.splice(i, 1)
-      i -= 1
-    }
-  }
-  await fs.writeFile('./MOCK_DATA.json', JSON.stringify(db))
-  res.json(db)
-})
+
 
 app.use((err, req, res, next) => {
   if (!err.statusCode) {
@@ -123,7 +75,7 @@ app.use((err, req, res, next) => {
   res.json(err.message)
 })
 app.use((req, res) => {
-  res.status(444)
+  res.status(500)
   res.end()
 })
 

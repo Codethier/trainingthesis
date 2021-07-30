@@ -1,14 +1,7 @@
 const breedService = require('./breed.service')
 
 async function create(req, res, next) {
-  const {
-    breed,
-    quantity,
-    price,
-    description
-  } = req.body
-  await breedService.create({breed, quantity, price, description})
-  res.json(req.body)
+  res.json(await breedService.create(req.body))
 }
 
 async function findOne(req, res, next) {

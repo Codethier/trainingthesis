@@ -18,23 +18,35 @@ describe('integration tests', () => {
   })
 
   describe('/breed', () => {
+
     let testData = {
+      id: 'feoiu8saovnwivewds',
       breed: 'dog',
       quantity: '12',
       price: '1200',
       description: 'A cute dog'
     }
-
-
-    describe('/breed/create', () => {
-      test('should return same data', async () => {
-        breedService.create.mockReturnValue(testData)
-        let response = await request(app.app).post('/breed/create').send(testData)
-        expect(response.body).toStrictEqual(testData)
-      })
+    test('post./breed/create', async () => {
+      let response = await request(app).post('/breed/create').send(testData)
+      expect(response.body).toStrictEqual(testData);
     })
 
-
+    test('get./breed/:id', async () => {
+      let response = await request(app).get(`/breed/${testData.id}`)
+      expect(response.body).toStrictEqual(testData.id)
+    })
+    test('get./breed/all', async () => {
+      await breedService.findAll.mockReturnValue(testData)
+      let response = await request(app).get(`/breed/all`)
+      expect(response.body).toStrictEqual(testData)
+    })
+    test('delete./breed/:id', async () => {
+      await breedService.deleteById.mockReturnValue(testData.id)
+      let response = await request(app).delete(`/breed/${testData.id}`)
+      expect(response.body).toStrictEqual(testData.id)
+    })
   })
+
+
 })
 
