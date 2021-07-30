@@ -8,12 +8,15 @@ jest.mock('./routers/breed/breed.service')
 describe('integration tests', () => {
   beforeEach(() => {
     (async () => {
-      await mongoose.connect(config.db_url.toString() + config.db_name.toString(), {useNewUrlParser: true, useUnifiedTopology: true})
+      await mongoose.connect(config.db_url.toString() + 'jest', {useNewUrlParser: true, useUnifiedTopology: true})
     })().catch(e => console.log(e))
   })
-  afterAll(() => {
-    mongoose.connection.close().catch()
+
+  afterAll(async () => {
+    await mongoose.connection.db.dropDatabase()
+    await mongoose.connection.close().catch()
   })
+
   describe('/breed', () => {
     let testData = {
       breed: 'dog',
