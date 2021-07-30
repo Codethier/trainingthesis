@@ -14,6 +14,7 @@ const schemas = require("./schemas");
 const item = require("./routers/item/item.router");
 const shop = require("./routers/shop/shop.router");
 const order = require("./routers/order/order.router");
+const auth = require("./routers/auth/auth.router");
 let app = express()
 //handle test path
 let swaggerDocument
@@ -25,7 +26,8 @@ if (fs.existsSync('./api')) {
 
 app.use(bodyParser.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-app.use('/user', user.router)
+//#TODO break up users , cna create login withotu priv
+
 
 async function checkToken(req, res) {
   const header = req.headers.authorization
@@ -55,12 +57,13 @@ async function checkAdmin(req, res, next) {
 }
 
 // non admin routes
-
+app.use('/auth', auth.router)
 app.get('/', (req, res, next) => {
   res.json('index')
 })
 app.use(checkAdmin)
 //admin routes
+app.use('/user', user.router)
 app.use('/shop', shop.router)
 app.use('/order', order.router)
 app.use('/item', item.router)

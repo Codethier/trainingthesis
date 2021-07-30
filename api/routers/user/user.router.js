@@ -25,12 +25,6 @@ router.delete('/:_id', (req, res, next) => {
     next()
   })
 })
-router.post('/token', (req, res, next) => {
-  return controller.token(req, res, next).catch(e => {
-    console.log(e);
-    next()
-  })
-})
 
 
 module.exports = {

@@ -41,12 +41,5 @@ describe('/user', () => {
     let response = await request(app).delete(`/user/${testData.id}`)
     expect(response.body).toStrictEqual(testData.id)
   })
-  test('post./user/token', async () => {
-    await userService.find.mockReturnValue([testData])
-    let response = await request(app).post(`/user/token`).send(testData)
-    jwt.verify(response.body, config.secret, (err, data) => {
-      expect(data.id).toStrictEqual(testData.id)
-    })
-  })
 })
 

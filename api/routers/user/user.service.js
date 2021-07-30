@@ -14,8 +14,5 @@ module.exports = {
   },
   deleteById: async (q) => {
     return await schemas.UserSchema.findByIdAndDelete(q).exec()
-  },
-  find: async (q) => {
-    return await  schemas.UserSchema.find(q).exec()
-}
+  }
 }

@@ -1,21 +1,21 @@
 const request = require('supertest')
-const breedService = require('./routers/breed/breed.service')
-const app = require('./app')
+const {app} = require('./app')
 const mongoose = require("mongoose");
 const config = require("../CONFIG.json");
-jest.setTimeout(3000)
-jest.mock('./routers/breed/breed.service')
-describe('integration tests', () => {
-  beforeEach(() => {
-    (async () => {
-      await mongoose.connect(config.db_url.toString() + 'jest', {useNewUrlParser: true, useUnifiedTopology: true})
-    })().catch(e => console.log(e))
-  })
+const schema = require('./schemas')
+const {token} = require("./routers/auth/auth.controller");
 
+
+describe('integration tests', () => {
+  beforeAll(async () => {
+    await mongoose.connect(config.db_url.toString() + 'jest', {useNewUrlParser: true, useUnifiedTopology: true});
+
+  })
   afterAll(async () => {
     await mongoose.connection.db.dropDatabase()
     await mongoose.connection.close().catch()
   })
+
 
   describe('/breed', () => {
 
@@ -26,6 +26,7 @@ describe('integration tests', () => {
       price: '1200',
       description: 'A cute dog'
     }
+    //#Todo can't login
     test('post./breed/create', async () => {
       let response = await request(app).post('/breed/create').send(testData)
       expect(response.body).toStrictEqual(testData);
