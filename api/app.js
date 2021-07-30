@@ -11,6 +11,9 @@ const user = require('./routers/user/user.router')
 const jwt = require('jsonwebtoken')
 let express = require('express');
 const schemas = require("./schemas");
+const item = require("./routers/item/item.router");
+const shop = require("./routers/shop/shop.router");
+const order = require("./routers/order/order.router");
 let app = express()
 //handle test path
 let swaggerDocument
@@ -58,6 +61,9 @@ app.get('/', (req, res, next) => {
 })
 app.use(checkAdmin)
 //admin routes
+app.use('/shop', shop.router)
+app.use('/order', order.router)
+app.use('/item',item.router)
 app.use('/breed', breed.router)
 app.get('/person/:id/vaccinated', (req, res, next) => {
   let id = db.findIndex(i => {

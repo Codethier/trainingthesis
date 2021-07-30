@@ -49,5 +49,5 @@ module.exports = {
   BreedSchema: mongoose.model('Breed', BreedSchema),
   ItemsSchema: mongoose.model('Item', ItemsSchema),
   ShopSchema: mongoose.model('Shop', ShopSchema),
-  OrderSchema: mongoose.model('Order', OrderSchema)
+  OrderSchema: mongoose.model('Order', OrderSchema),
 }
