@@ -4,7 +4,7 @@ module.exports = {
   create: async (data) => {
     const order = new schemas.OrderSchema(data)
     await order.save()
-    return data
+    return order
   },
   findOne: async (q) => {
     return await schemas.OrderSchema.findById(q).exec()

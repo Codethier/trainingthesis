@@ -18,7 +18,7 @@ let testData = {
 }
 describe('/item', () => {
   test('post./item/create', async () => {
-    itemService.create = () => ({})
+    itemService.create.mockReturnValue(testData)
     let response = await request(app).post('/item/create').send(testData)
     expect(response.body).toStrictEqual(testData);
   })

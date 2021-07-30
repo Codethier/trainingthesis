@@ -4,7 +4,7 @@ module.exports = {
   create: async (data) => {
     const shop = new schemas.ShopSchema(data)
     await shop.save()
-    return data
+    return shop
   },
   findOne: async (q) => {
     return await schemas.ShopSchema.findById(q).exec()

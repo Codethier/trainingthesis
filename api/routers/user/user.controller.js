@@ -12,8 +12,8 @@ async function create(req, res, next) {
     email
   } = req.body
   password = crypto.createHash('sha512').update(password).digest('base64')
-  await userService.create({user: user, password: password, role: role, email: email})
-  res.json(req.body)
+
+  res.json(await userService.create({user: user, password: password, role: role, email: email}))
 }
 
 async function findOne(req, res, next) {
