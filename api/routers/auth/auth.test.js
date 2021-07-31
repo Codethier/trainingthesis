@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const config = require("../../../CONFIG.json");
 const createError = require("http-errors");
-jest.mock('./user.service')
+jest.mock('./auth.service')
 
 let app = express()
 app.use(bodyParser.json())
@@ -19,7 +19,7 @@ let testData = {
   password: 'goodBoy2015',
   email: 'dog@wauf.bark'
 }
-describe('/user', () => {
+describe('/auth', () => {
   test('post./auth/token', async () => {
     await userService.find.mockReturnValue([testData])
     let response = await request(app).post(`/auth/token`).send(testData)

@@ -26,7 +26,6 @@ if (fs.existsSync('./api')) {
 
 app.use(bodyParser.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-//#TODO break up users , cna create login withotu priv
 
 
 async function checkToken(req, res) {
@@ -58,7 +57,7 @@ async function checkAdmin(req, res, next) {
 
 // non admin routes
 app.use('/auth', auth.router)
-app.get('/', (req, res, next) => {
+app.get('/', (req, reds, next) => {
   res.json('index')
 })
 app.use(checkAdmin)

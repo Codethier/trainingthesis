@@ -1,8 +1,8 @@
 const orderService = require('./order.service')
 
 async function create(req, res, next) {
-
-  res.json(await orderService.create(req.body))
+  let order = await orderService.create(req.body)
+  res.json(order)
 }
 
 async function findOne(req, res, next) {

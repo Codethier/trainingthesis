@@ -2,14 +2,11 @@ const express = require('express')
 const controller = require('./order.controller')
 const router = express.Router()
 
-
 router.post('/create', (req, res, next) => {
-  {
-    return controller.create(req, res, next).catch(e => {
-      console.log(e);
-      next()
-    })
-  }
+  return controller.create(req, res, next).catch(e => {
+    console.log(e);
+    next()
+  })
 })
 router.get('/all', (req, res, next) => {
   return controller.findAll(req, res, next).catch(e => {

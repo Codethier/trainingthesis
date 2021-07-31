@@ -1,8 +1,5 @@
 const userService = require('./user.service')
 let crypto = require('crypto')
-const CONFIG = require('../../../CONFIG.json')
-const createError = require("http-errors");
-const jwt = require("jsonwebtoken");
 
 async function create(req, res, next) {
   req.body.password = crypto.createHash('sha512').update(req.body.password).digest('base64')
