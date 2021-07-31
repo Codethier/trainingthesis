@@ -25,6 +25,7 @@ if (fs.existsSync('./api')) {
 }
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 

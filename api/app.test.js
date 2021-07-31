@@ -48,24 +48,24 @@ describe('integration tests', () => {
     }
     test('post./breed/create', async () => {
       let token = await getTestToken()
-      let response = await request(app).post('/breed/create').send(testData).set('authorization', `Bearer ${token}`)
+      let response = await request(app).post('/breed/create').send(testData).set('Authorization', `Bearer ${token}`)
       testData.id = response.body._id
       expect(response.status).toStrictEqual(200);
     })
 
     test('get./breed/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/breed/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/breed/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('get./breed/all', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/breed/all`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/breed/all`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('delete./breed/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).delete(`/breed/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).delete(`/breed/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
   })
@@ -91,24 +91,24 @@ describe('integration tests', () => {
     }
     test('post./item/create', async () => {
       let token = await getTestToken()
-      let response = await request(app).post('/item/create').send(testData).set('authorization', `Bearer ${token}`)
+      let response = await request(app).post('/item/create').send(testData).set('Authorization', `Bearer ${token}`)
       testData.id = response.body._id
       expect(response.status).toStrictEqual(200)
     })
 
     test('get./item/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/item/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/item/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('get./item/all', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/item/all`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/item/all`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('delete./item/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).delete(`/item/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).delete(`/item/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
   })
@@ -120,7 +120,7 @@ describe('integration tests', () => {
     }
     test('post./shop/create', async () => {
       let token = await getTestToken()
-      let response = await request(app).post('/shop/create').send(testData).set('authorization', `Bearer ${token}`)
+      let response = await request(app).post('/shop/create').send(testData).set('Authorization', `Bearer ${token}`)
       testData.id = response.body._id
       idMem.shop_id = testData.id
       expect(response.status).toStrictEqual(200)
@@ -128,19 +128,19 @@ describe('integration tests', () => {
 
     test('get./shop/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/shop/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/shop/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('get./shop/all', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/shop/all`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/shop/all`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('delete./shop/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).delete(`/shop/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).delete(`/shop/${testData.id}`).set('Authorization', `Bearer ${token}`)
       //for orders
-      let newSave = await request(app).post('/shop/create').send(testData).set('authorization', `Bearer ${token}`)
+      let newSave = await request(app).post('/shop/create').send(testData).set('Authorization', `Bearer ${token}`)
       idMem.shop_id = newSave.body._id
       expect(response.status).toStrictEqual(200)
     })
@@ -155,7 +155,7 @@ describe('integration tests', () => {
     }
     test('post./user/create', async () => {
       let token = await getTestToken()
-      let response = await request(app).post('/user/create').send(testData).set('authorization', `Bearer ${token}`)
+      let response = await request(app).post('/user/create').send(testData).set('Authorization', `Bearer ${token}`)
       testData.id = response.body._id
       idMem.user_id = testData.id
       expect(response.status).toStrictEqual(200)
@@ -163,19 +163,19 @@ describe('integration tests', () => {
 
     test('get./user/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/user/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/user/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('get./user/all', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/user/all`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/user/all`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('delete./user/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).delete(`/user/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).delete(`/user/${testData.id}`).set('Authorization', `Bearer ${token}`)
       //for orders
-      let newSave = await request(app).post('/user/create').send(testData).set('authorization', `Bearer ${token}`)
+      let newSave = await request(app).post('/user/create').send(testData).set('Authorization', `Bearer ${token}`)
       idMem.user_id = newSave.body._id
       expect(response.status).toStrictEqual(200)
     })
@@ -191,24 +191,24 @@ describe('integration tests', () => {
       testData.user_id = idMem.user_id
       testData.shop_id = idMem.shop_id
       let token = await getTestToken()
-      let response = await request(app).post('/order/create').send(testData).set('authorization', `Bearer ${token}`)
+      let response = await request(app).post('/order/create').send(testData).set('Authorization', `Bearer ${token}`)
       testData.id = response.body._id
       expect(response.status).toStrictEqual(200)
     })
 
     test('get./order/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/order/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/order/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('get./order/all', async () => {
       let token = await getTestToken()
-      let response = await request(app).get(`/order/all`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).get(`/order/all`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
     test('delete./order/:id', async () => {
       let token = await getTestToken()
-      let response = await request(app).delete(`/order/${testData.id}`).set('authorization', `Bearer ${token}`)
+      let response = await request(app).delete(`/order/${testData.id}`).set('Authorization', `Bearer ${token}`)
       expect(response.status).toStrictEqual(200)
     })
   })

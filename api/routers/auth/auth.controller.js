@@ -10,12 +10,23 @@ async function token(req, res, next) {
     password
   } = req.body
   password = crypto.createHash('sha512').update(password).digest('base64')
-  let q = await userService.find({user: user, password: password})
-  if (q.length !== 0){
+  //oauth2 spec hack
+  // {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTYyODkxMDkxMX0.ccFlHrzkfBdNTyBFf-EDOb3Tp28HTTWLg_MGEpDj9AQ","token_type":"bearer"}
+  let q
+  if (req.body.username) {
+    q = await userService.find({user: req.body.username, password: password})
+
+  } else {
+    q = await userService.find({user: user, password: password})
+  }
+  if (q.length !== 0) {
     let token = await jwt.sign({id: q[0].id}, CONFIG.secret)
-    res.json(token)
-  } else
-  {
+    if (req.body.username) {
+      res.json({access_token: token,token_type:"bearer"})
+    } else {
+      res.json(token)
+    }
+  } else {
     return next(new createError(403, 'Unauthorized'), {expose: false})
   }
 }
