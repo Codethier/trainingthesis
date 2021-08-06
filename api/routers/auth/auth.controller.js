@@ -1,4 +1,4 @@
-const userService = require('./auth.service')
+const authService = require('./auth.service')
 let crypto = require('crypto')
 const CONFIG = require('../../../CONFIG.json')
 const createError = require("http-errors");
@@ -14,15 +14,15 @@ async function token(req, res, next) {
   // {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTYyODkxMDkxMX0.ccFlHrzkfBdNTyBFf-EDOb3Tp28HTTWLg_MGEpDj9AQ","token_type":"bearer"}
   let q
   if (req.body.username) {
-    q = await userService.find({user: req.body.username, password: password})
+    q = await authService.find({user: req.body.username, password: password})
 
   } else {
-    q = await userService.find({user: user, password: password})
+    q = await authService.find({user: user, password: password})
   }
   if (q.length !== 0) {
     let token = await jwt.sign({id: q[0].id}, CONFIG.secret)
     if (req.body.username) {
-      res.json({access_token: token,token_type:"bearer"})
+      res.json({access_token: token,token_type:"Bearer"})
     } else {
       res.json(token)
     }

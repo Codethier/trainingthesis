@@ -15,6 +15,7 @@ const item = require("./routers/item/item.router");
 const shop = require("./routers/shop/shop.router");
 const order = require("./routers/order/order.router");
 const auth = require("./routers/auth/auth.router");
+const cors = require('cors')
 let app = express()
 //handle test path
 let swaggerDocument
@@ -27,6 +28,7 @@ if (fs.existsSync('./api')) {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use(cors())
 
 
 async function checkToken(req, res) {
@@ -59,7 +61,7 @@ async function checkAdmin(req, res, next) {
 // non admin routes
 app.use('/auth', auth.router)
 app.get('/', (req, reds, next) => {
-  res.json('index')
+  res.send('index asda sd ')
 })
 app.use(checkAdmin)
 //admin routes
