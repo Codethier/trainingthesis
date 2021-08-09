@@ -1,6 +1,6 @@
 const authService = require('./auth.service')
 let crypto = require('crypto')
-const CONFIG = require('../../../CONFIG.json')
+const CONFIG = require('../../CONFIG.json')
 const createError = require("http-errors");
 const jwt = require("jsonwebtoken");
 

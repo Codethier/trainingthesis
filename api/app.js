@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const mongoose = require("mongoose")
 const schema = require('./schemas')
-const config = require('../CONFIG.json')
+const config = require('./CONFIG.json')
 const breed = require('./routers/breed/breed.router')
 const user = require('./routers/user/user.router')
 const jwt = require('jsonwebtoken')
@@ -24,9 +24,9 @@ if (fs.existsSync('./api')) {
 } else {
   swaggerDocument = YAML.load('./docs/openapi.yaml')
 }
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use(cors())
 

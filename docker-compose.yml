@@ -1,0 +1,20 @@
+version: "3"
+services:
+    app:
+        container_name: api
+        build:
+          context: .
+          dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
+    mongo:
+        image: mongo:latest
+    nginx:
+      build:
+        context: .
+        dockerfile: nginx.dockerfile
+      ports:
+        - "80:80"
+
+
+

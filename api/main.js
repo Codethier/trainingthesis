@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const config = require("../CONFIG.json");
+const config = require("./CONFIG.json");
 const crypto = require("crypto");
 const userService = require("./routers/user/user.service");
 const authService = require("./routers/auth/auth.service");

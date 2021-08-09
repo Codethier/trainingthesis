@@ -4,7 +4,7 @@ const router = require('./auth.router')
 const express = require("express");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
-const config = require("../../../CONFIG.json");
+const config = require("../../CONFIG.json");
 const createError = require("http-errors");
 jest.mock('./auth.service')
 

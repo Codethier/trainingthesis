@@ -9,18 +9,13 @@ Az alkalmazás feladata hogy a feltöltött állatokra rendeléseket felvegzen ,
 ## 2. Az alkalmazás telepítése és inditása
 
 - clonozzuk le ezt a repot : https://github.com/Codethier/trainingthesis.git
+- npm i
 - npm run build
-- docker run --restart=unless-stopped -p 127.0.0.1:9500:8000 -v ./:/app -d codethier/trainingthesis
-- Proxyval továbbitsuk az altalunk kivant domainre a 127.0.0.1:9500 , ha akarjuk kossuk ki domain.com/static-ot a ./ dist mappát jobb teljesitményért
+- docker compose up
+- az api 8080 on fut , a webapp 80 on
 
 
 ## 3. A végpontok dokumentációja
 
-[Swagger](https://)
+http://localhost:8080/docs
 
----
----
-## Linkek:
-
----
----
