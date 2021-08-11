@@ -1,0 +1,27 @@
+<table *ngIf="http.all_breed">
+  <thead>
+    <tr class="table table-striped">
+      <th scope="col">ID</th>
+      <th scope="col">Breed</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let breed of http.all_breed">
+      <th>{{breed._id}}</th>
+      <td>{{breed.breed}}</td>
+      <td>{{breed.price}}</td>
+      <td>{{breed.quantity}}</td>
+      <td>{{breed.description}}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="[breed._id]">Edit</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(breed._id!)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

@@ -1,0 +1,25 @@
+<table *ngIf="http.all_order">
+  <thead>
+    <tr class="table table-striped">
+      <th scope="col">ID</th>
+      <th scope="col">Shop ID</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Items ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of http.all_order">
+      <th>{{item._id}}</th>
+      <td>{{item.shop_id}}</td>
+      <td>{{item.user_id}}</td>
+      <td>{{item.items}}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="[item._id]">Edit</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="delete(item._id!)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

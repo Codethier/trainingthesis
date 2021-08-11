@@ -515,6 +515,8 @@ components:
           type: string
         items:
           type: array
+          items:
+            type: string
         shop_id:
           type: string
     OrderIn:
@@ -524,6 +526,8 @@ components:
           type: string
         items:
           type: array
+          items:
+            type: string
         shop_id:
           type: string
     UserIn:
