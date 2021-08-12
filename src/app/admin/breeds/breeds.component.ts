@@ -9,6 +9,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class BreedsComponent implements OnInit {
 
+  filter = ""
   constructor(public http: MainHttpService) { }
 
   ngOnInit(): void {

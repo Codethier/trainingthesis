@@ -1,3 +1,5 @@
+<label for="filter-data"> Filter</label>
+<input [(ngModel)]="filter" type="text" id="filter-data">
 <table *ngIf="http.all_shop">
   <thead>
     <tr class="table table-striped">
@@ -7,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of http.all_shop">
+    <tr *ngFor="let item of http.all_shop | filter: filter :'name'">
       <th>{{item._id}}</th>
       <td>{{item.name}}</td>
       <td>{{item.address}}</td>

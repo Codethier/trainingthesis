@@ -1,2 +1,237 @@
-<p>edit works!</p>
-<p *ngIf="edit">{{edit._id}}</p>
+<form *ngIf="page === 'breeds'" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="_id"> Id</label>
+    <input
+      type="text"
+      formControlName="_id"
+      id="_id"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="breed"> Breed</label>
+    <input
+      type="text"
+      formControlName="breed"
+      id="breed"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="quantity"> Quantity</label>
+    <input
+      type="text"
+      formControlName="quantity"
+      id="quantity"
+      class="form-control"
+    >
+  </div>
+    <div class="form-group">
+    <label for="price"> Price</label>
+    <input
+      type="text"
+      formControlName="price"
+      id="price"
+      class="form-control"
+    >
+  </div>
+
+    <div class="form-group">
+    <label for="description"> Description</label>
+    <input
+      type="text"
+      formControlName="description"
+      id="description"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </div>
+
+</form>
+<form *ngIf="page === 'items'" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="_id1"> Id</label>
+    <input
+      type="text"
+      formControlName="_id"
+      id="_id1"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="itemName"> Item Name</label>
+    <input
+      type="text"
+      formControlName="itemName"
+      id="itemName"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="amount"> amount</label>
+    <input
+      type="text"
+      formControlName="amount"
+      id="amount"
+      class="form-control"
+    >
+  </div>
+    <div class="form-group">
+    <label for="price1"> Price</label>
+    <input
+      type="text"
+      formControlName="price"
+      id="price1"
+      class="form-control"
+    >
+  </div>
+
+    <div class="form-group">
+    <label for="description1"> Description</label>
+    <input
+      type="text"
+      formControlName="description"
+      id="description1"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </div>
+
+</form>
+<form *ngIf="page === 'shops'" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="_id2"> Id</label>
+    <input
+      type="text"
+      formControlName="_id"
+      id="_id2"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="address">address</label>
+    <input
+      type="text"
+      formControlName="address"
+      id="address"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="name"> name</label>
+    <input
+      type="text"
+      formControlName="name"
+      id="name"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </div>
+
+</form>
+<form *ngIf="page === 'orders'" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="_id3"> Id</label>
+    <input
+      type="text"
+      formControlName="_id"
+      id="_id3"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="user_id"> user_id</label>
+    <input
+      type="text"
+      formControlName="user_id"
+      id="user_id"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="shop_id"> shop_id</label>
+    <input
+      type="text"
+      formControlName="shop_id"
+      id="shop_id"
+      class="form-control"
+    >
+  </div>
+    <div class="form-group">
+    <label for="items"> items</label>
+    <input
+      type="text"
+      formControlName="items"
+      id="items"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </div>
+
+</form>
+<form *ngIf="page === 'users'" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="_id4"> Id</label>
+    <input
+      type="text"
+      formControlName="_id"
+      id="_id4"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="user"> user</label>
+    <input
+      type="text"
+      formControlName="user"
+      id="user"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="role"> role</label>
+    <input
+      type="text"
+      formControlName="role"
+      id="role"
+      class="form-control"
+    >
+  </div>
+    <div class="form-group">
+    <label for="email"> email</label>
+    <input
+      type="text"
+      formControlName="email"
+      id="email"
+      class="form-control"
+    >
+  </div>
+
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </div>
+
+</form>
+

@@ -7,7 +7,7 @@ import {MainHttpService} from "../../main-http.service";
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
+  filter = ""
   constructor(public http: MainHttpService) {
   }
 

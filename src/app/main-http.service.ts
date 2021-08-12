@@ -32,6 +32,7 @@ export class MainHttpService {
     })
   }
 
+  //wrong approach shoulda just implemented refresh and rest return a sub
   createBreed(breed: Breed) {
     this.http.post(this.domain + 'breed/create', breed, {headers: new HttpHeaders(this.auth_obj)}).subscribe()
   }

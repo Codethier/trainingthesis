@@ -13,6 +13,8 @@ import { ShopsComponent } from './admin/shops/shops.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { UsersComponent } from './admin/users/users.component';
 import { EditComponent } from './admin/edit/edit.component';
+import { CreateComponent } from './admin/create/create.component';
+import { FilterPipe } from './admin/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { EditComponent } from './admin/edit/edit.component';
     ShopsComponent,
     OrdersComponent,
     UsersComponent,
-    EditComponent
+    EditComponent,
+    CreateComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

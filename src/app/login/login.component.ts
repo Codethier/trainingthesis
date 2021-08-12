@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit, DoCheck  {
     this.http.login(username,password)
   }
   ngDoCheck() {
-    console.log('asd')
     if (this.http.token){
       this.router.navigate(['/admin','breeds']).then(r => (r))
     }

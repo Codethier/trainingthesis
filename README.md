@@ -1,70 +1,70 @@
 # Habibi állatkereskedés
 
-En mint admin szeretnem ha allatfajtakat tudnek feltolteni a weboldalamra , es a rendeleseket nyomon kovethessem.
+Én, mint admin szeretném ha állatfajtákat tudnék feltölteni a weboldalamra , és a rendeléseket nyomon követhessem.
 
-Szeretnem kifejezetten ha tudnek:
+Szeretném kifejezetten ha tudnék:
 
-- megrendeleseket kezelni
-- lasssam a regisztralt vasarloimat
-- legyen egy allat listam fajokkal stb
-- legyen egy kiegeszitos termekek macska kaja stb es lassam milyen alaltokhoz vannak rendelve mint ajanlott
-- es lassam melyik tarolo egysegben vannak
+- megrendeléseket kezelni
+- lássam a regisztrált vásárlóimat
+- legyen egy állatlistám fajokkal stb
+- legyen egy kiegészítős termékek, ahol pl macska kaja, stb... és lássam milyen állatokhoz vannak rendelve, melyikhez ajánlott 
+- és lássam melyik tároló egységben vannak
 
-## _**1. Állatok és állatfelszerelések adminfelület**_
+## **1. Állatok és állatfelszerelések adminfelület**
 
 **1. agilis felhasználói történet:**
-> _Egy helyen áttekinthetők a készleten lévő termékek, állatok, illetve mindegyiknek a pontos adatai._
+> Egy helyen áttekinthetők a készleten lévő termékek, állatok, illetve mindegyiknek a pontos adatai.
 
 **Elfogadási kritérium:**  
 Az oldalra navigálva megjelenik az összes állat és kiegészítő adata egy helyen.  
-Ezek az adatok az azonosító, a név, mennyiseg , az ar es a leiras.
+Ezek az adatok az azonosító, a név, mennyiség , az ár és a leírás.
 
 **2. agilis felhasználói történet:**
-> _Az állatok és a hozzájuk szükséges kiegészítők kategóriák szerinti listázhatósága._
+> Az állatok és a hozzájuk szükséges kiegészítők kategóriák szerinti listázhatósága.
 
 **Elfogadási kritérium:**  
 A kategória kiválasztásával frissül a listaoldal, ahol csak a szűrt adatok láthatók.
 ---
 **3. agilis felhasználói történet:**
-> _A felhasznalok listázhatósága._
+> A felhasznalok listázhatósága.
 
 **Elfogadási kritérium:**  
 A kategória kiválasztásával frissül a listaoldal, ahol csak a szűrt adatok láthatók.
 ---
 **4. agilis felhasználói történet:**
-> _A boltok listázhatósága._
+> A boltok listázhatósága.
 
 **Elfogadási kritérium:**  
 A kategória kiválasztásával frissül a listaoldal, ahol csak a szűrt adatok láthatók.
 
 ---
 **5. agilis felhasználói történet:**
-> _Az egyeb termekek listázhatósága._
+> Az egyeb termekek listázhatósága.
 
 **Elfogadási kritérium:**  
 A kategória kiválasztásával frissül a listaoldal, ahol csak a szűrt adatok láthatók.
 
 **6. agilis felhasználói történet:**
-> _A megrendelesek listázhatósága._
+> A megrendelesek listázhatósága.
 
 **Elfogadási kritérium:**  
 A kategória kiválasztásával frissül a listaoldal, ahol csak a szűrt adatok láthatók.
 
 ---
 **7. agilis felhasználói történet:**
-> _Ezeket az kategoriakat lehessen szerkeszteni es torolni valamint ujat csinalni._
+> Ezeket az kategóriákat lehessen szerkeszteni és törölni valamint újat csinálni.
 
 **Elfogadási kritérium:**  
-Az egyes entititasokat lehessen szerkeszteni es torolni valamint ujat csinalni.
+Az egyes entititásokat lehessen szerkeszteni és törölni valamint újat csinalni.
 
 
-## _**1. Bejelentkezési lehetőség**_
+## **1. Bejelentkezési lehetőség**
 
 ---
 **1. agilis felhasználói történet:**
-> _A bejelentkezésnél felhasznalonev és jelszót kell megadni.._
+> A bejelentkezésnél felhasználónevet és jelszót kell megadni..
 
 **Elfogadási kritérium:**  
-Az adminok felhasznalonev és jelszóval tudnak csak bejelentkezni
+Az adminok felhasználónév és jelszóval tudnak csak bejelentkezni
 ---
 ---

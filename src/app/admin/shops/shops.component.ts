@@ -7,7 +7,7 @@ import {MainHttpService} from "../../main-http.service";
   styleUrls: ['./shops.component.scss']
 })
 export class ShopsComponent implements OnInit {
-
+  filter = ""
   constructor(public http: MainHttpService) { }
 
   ngOnInit(): void {

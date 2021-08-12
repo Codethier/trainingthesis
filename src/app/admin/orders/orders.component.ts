@@ -8,7 +8,7 @@ import {MainHttpService} from "../../main-http.service";
 })
 export class OrdersComponent implements OnInit {
 
-
+  filter = ""
   constructor(public http: MainHttpService) { }
 
   ngOnInit(): void {

@@ -8,6 +8,7 @@ import {ShopsComponent} from "./admin/shops/shops.component";
 import {OrdersComponent} from "./admin/orders/orders.component";
 import {UsersComponent} from "./admin/users/users.component";
 import {EditComponent} from "./admin/edit/edit.component";
+import {CreateComponent} from "./admin/create/create.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
       {path: 'shops', component: ShopsComponent},
       {path: 'orders', component: OrdersComponent},
       {path: 'users', component: UsersComponent},
+      {path: 'create', component: CreateComponent},
       {path: ':page/:_id', component: EditComponent}
     ]
   },
