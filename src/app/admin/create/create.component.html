@@ -1,0 +1,217 @@
+<p>Select what you want to create!</p>
+
+<div>
+  <input [(ngModel)]="radio" type="radio" id="breed" name="create" value="breeds"
+         checked>
+  <label for="breed">Breed</label>
+</div>
+
+<div>
+  <input [(ngModel)]="radio" type="radio" id="item" name="create" value="items">
+  <label for="item">Item</label>
+</div>
+
+<div>
+  <input [(ngModel)]="radio" type="radio" id="shop" name="create" value="shops">
+  <label for="shop">Shop</label>
+</div>
+<div>
+  <input [(ngModel)]="radio" type="radio" id="order" name="create" value="orders">
+  <label for="order">Order</label>
+</div>
+<div>
+  <input [(ngModel)]="radio" type="radio" id="user" name="create" value="users">
+  <label for="user">User</label>
+</div>
+
+<form *ngIf="radio === 'breeds'" [formGroup]="editFormBreeds" (ngSubmit)="onSubmit()">
+
+
+  <div class="form-group">
+    <label for="breed0"> Breed</label>
+    <input
+      type="text"
+      formControlName="breed"
+      id="breed0"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="quantity"> Quantity</label>
+    <input
+      type="text"
+      formControlName="quantity"
+      id="quantity"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="price"> Price</label>
+    <input
+      type="text"
+      formControlName="price"
+      id="price"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="description"> Description</label>
+    <input
+      type="text"
+      formControlName="description"
+      id="description"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+
+</form>
+<form *ngIf="radio === 'items'" [formGroup]="editFormItems" (ngSubmit)="onSubmit()">
+
+
+  <div class="form-group">
+    <label for="itemName"> Item Name</label>
+    <input
+      type="text"
+      formControlName="itemName"
+      id="itemName"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="amount"> amount</label>
+    <input
+      type="text"
+      formControlName="amount"
+      id="amount"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="price1"> Price</label>
+    <input
+      type="text"
+      formControlName="price"
+      id="price1"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="description1"> Description</label>
+    <input
+      type="text"
+      formControlName="description"
+      id="description1"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+
+</form>
+<form *ngIf="radio === 'shops'" [formGroup]="editFormShops" (ngSubmit)="onSubmit()">
+
+
+  <div class="form-group">
+    <label for="address">address</label>
+    <input
+      type="text"
+      formControlName="address"
+      id="address"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="name"> name</label>
+    <input
+      type="text"
+      formControlName="name"
+      id="name"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+
+</form>
+<form *ngIf="radio === 'orders'" [formGroup]="editFormOrders" (ngSubmit)="onSubmit()">
+
+
+  <div class="form-group">
+    <label for="user_id"> user_id</label>
+    <input
+      type="text"
+      formControlName="user_id"
+      id="user_id"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="shop_id"> shop_id</label>
+    <input
+      type="text"
+      formControlName="shop_id"
+      id="shop_id"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="items"> items</label>
+    <input
+      type="text"
+      formControlName="items"
+      id="items"
+      class="form-control"
+    >
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+
+</form>
+<form *ngIf="radio === 'users'" [formGroup]="editFormUsers" (ngSubmit)="onSubmit()">
+
+
+  <div class="form-group">
+    <label for="user0"> user</label>
+    <input
+      type="text"
+      formControlName="user"
+      id="user0"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="role"> role</label>
+    <input
+      type="text"
+      formControlName="role"
+      id="role"
+      class="form-control"
+    >
+  </div>
+  <div class="form-group">
+    <label for="email"> email</label>
+    <input
+      type="text"
+      formControlName="email"
+      id="email"
+      class="form-control"
+    >
+  </div>
+
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+
+</form>
